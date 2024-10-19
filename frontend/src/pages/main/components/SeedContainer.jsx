@@ -8,7 +8,7 @@ export default function SeedContainer({ seedCnt }) {
         <TitleWrapper>내가 모은 씨앗</TitleWrapper>
         <CountContainer>
           <CntNumber>{seedCnt}</CntNumber>
-          <span style={{ color: "white", fontWeight: "800" }}>개</span>
+          <span style={{ color: "var(--font-01)", fontWeight: "800" }}>개</span>
         </CountContainer>
       </TopContainer>
 
@@ -64,7 +64,7 @@ const CountContainer = styled.div`
 const CntNumber = styled.span`
   font-size: 40px;
   font-weight: 800;
-  color: white;
+  color: var(--font-01);
 `;
 
 const TodoTitle = styled.h3`

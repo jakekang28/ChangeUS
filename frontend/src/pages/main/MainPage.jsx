@@ -123,7 +123,7 @@ const NavButton = styled.button`
   align-items: center;
   box-shadow: 0 4px
     ${({ selection }) => (selection === "quiz" ? "#CE8700" : "#009c85")};
-  color: var(--white);
+  color: var(--font-01);
   font-size: 20px;
   font-family: "NanumSquareRound";
 `;

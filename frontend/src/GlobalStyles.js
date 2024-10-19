@@ -3,6 +3,18 @@ import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
+  font-family: "Maplestory";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../assets/fonts/Maplestory-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Maplestory";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../assets/fonts/Maplestory-Light.ttf") format("truetype");
+}
+@font-face {
   font-family: "Spoqa Han Sans";
   font-style: normal;
   font-weight: 300;

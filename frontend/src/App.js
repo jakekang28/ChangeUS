@@ -12,6 +12,10 @@ import { useEffect, useState } from "react";
 import { useSessionStorage } from "./hook/useSessionStorage";
 import { PrivateRoute } from "./PrivateRoute";
 import NavBar from "./components/NavBar";
+import QuestionScreen from "./quiz-solve/components/QuestionScreen";
+import AnswerScreen from "./quiz-solve/components/AnswerScreen";
+import CommentScreen from "./quiz-solve/components/CommentScreen";
+import ChallengeDashboardPage from "./pages/challenge-dashboard/ChallengeDashboardPage";
 
 function App() {
   const [user, setUser] = useState(() => sessionStorage.getItem("user"));
@@ -53,7 +57,20 @@ function App() {
 
               {/* 퀴즈 관련 화면 */}
               <Route path="/quiz-dashboard" element={<QuizDashboardPage />} />
-              <Route path="/quiz-solve" element={<QuizSolvePage />} />
+
+              <Route path="/quiz-solve/1" element={<QuestionScreen />} />
+              <Route path="/quiz-solve/2" element={<AnswerScreen />} />
+              <Route path="/quiz-solve/3" element={<CommentScreen />} />
+              <Route path="/quiz-solve/4" element={<QuestionScreen />} />
+              <Route path="/quiz-solve/5" element={<AnswerScreen />} />
+              <Route path="/quiz-solve/6" element={<CommentScreen />} />
+              <Route path="/quiz-solve/6" element={<CommentScreen />} />
+
+              {/* challenges */}
+              <Route
+                path="/challenges-dashboard"
+                element={<ChallengeDashboardPage />}
+              />
             </Routes>
 
             {window.location.pathname.includes("dashboard") && <NavBar />}

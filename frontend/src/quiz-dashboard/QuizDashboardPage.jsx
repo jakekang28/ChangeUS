@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ScreenContainer from "../components/ScreenContainer";
 import Header from "../components/Header";
 import QuizItem from "./components/QuizItem";
+import { instance } from "../apis/utils";
 
 export default function QuizDashboardPage() {
+  const [items, setItems] = useState();
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await instance(`/api/quiz/data`);
+      setItems(data);
+    };
+    getData();
+  }, []);
+
   return (
     <ScreenContainer
       style={{
@@ -14,12 +25,17 @@ export default function QuizDashboardPage() {
       <Header />
       <DiscriptionContainer>
         <DiscriptionTitle>재미있는 퀴즈를 풀어볼까요?</DiscriptionTitle>
-        <TipBox>Tip: 퀴즈를 풀면 집에 갈 수 있어요!</TipBox>
+        <TipBox>올바른 기후 상식도 배우고, 과학 지식도 익혀요!</TipBox>
       </DiscriptionContainer>
 
       <QuizList>
-        <QuizItem isAble={true} title={"재미있는 퀴즈를 풀어볼까요?"} />
-        <QuizItem isAble={false} title={"재미있는 퀴즈를 풀어볼까요?"} />
+        {items.map((item, i) => (
+          <QuizItem
+            isAble={true}
+            title={"재미있는 퀴즈를 풀어볼까요?"}
+            idx={item.idx}
+          />
+        ))}
       </QuizList>
     </ScreenContainer>
   );

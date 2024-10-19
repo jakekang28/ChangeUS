@@ -1,9 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { instance } from "../../apis/utils";
 
-export default function QuizItem({ isAble, title }) {
+export default function QuizItem({ isAble, title, idx }) {
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
+    const data = await instance(`/api/quiz/data/${idx}`);
+    navigate("/quiz-solve/1", { state: { data } });
+  };
   return (
-    <Container isAble={isAble}>
+    <Container isAble={isAble} onClick={handleClick}>
       <div>
         <IsAbleTagWrapper>
           {isAble ? "참여 가능한 퀴즈" : "종료된 퀴즈"}
