@@ -81,6 +81,8 @@ const GlobalStyle = createGlobalStyle`
         --main-brand: #04D7B7 ;        
         --point-brand : #FFD52B ; 
         --sub-brand : #463B65 ; 
+        --red : #FB5C4E ;
+        --blue : #3EABFF ;
         --white : #ffffff ; 
         --light-gray-01 : #DFDFDF ; 
         --light-gray-02 : #C1C1C1 ; 
