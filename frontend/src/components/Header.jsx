@@ -49,7 +49,7 @@ const ButtonItem = styled.li`
   justify-content: center;
   align-items: center;
   background-color: ${({ buttonName }) =>
-    buttonName === "home" ? "var(--red)" : "var(--blue)"};
+    buttonName === "home" ? "var(--red)" : "var(--yellow)"};
 `;
 
 const IconImage = styled.img`

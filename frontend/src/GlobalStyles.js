@@ -84,6 +84,7 @@ const GlobalStyle = createGlobalStyle`
         --red : #FB5C4E ;
         --blue : #3EABFF ;
         --white : #ffffff ; 
+        --yellow : #FFC14B ;
         --light-gray-01 : #DFDFDF ; 
         --light-gray-02 : #C1C1C1 ; 
         --font-01 : #403E47 ; 

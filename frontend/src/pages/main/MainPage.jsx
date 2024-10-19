@@ -5,8 +5,11 @@ import styled from "styled-components";
 import backgroundImage from "../../assets/images/background/main-background_01.png";
 import SeedContainer from "./components/SeedContainer";
 import Header from "../../components/Header";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
+  const navigate = useNavigate();
+
   const [seedSort, setSeedSort] = useState("my"); // my, all
   const [ws, setWs] = useState(null); // WebSocket 인스턴스 관리
 
@@ -59,7 +62,9 @@ export default function MainPage() {
         />
       </ContentContainer>
       <ButtonsContainer>
-        <NavButton selection="quiz">퀴즈</NavButton>
+        <NavButton selection="quiz" onClick={() => navigate("/quiz-dashboard")}>
+          퀴즈
+        </NavButton>
         <NavButton selection="challenge">챌린지</NavButton>
       </ButtonsContainer>
     </Container>
