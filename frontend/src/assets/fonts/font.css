@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../assets/fonts/SpoqaHanSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/SpoqaHanSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../assets/fonts/SpoqaHanSans-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/SpoqaHanSans-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Spoqa Han Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/SpoqaHanSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
