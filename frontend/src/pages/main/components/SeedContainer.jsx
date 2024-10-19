@@ -47,6 +47,7 @@ const TitleWrapper = styled.div`
   font-weight: 800;
   border-radius: 50px;
   color: white;
+  margin-top: 33px;
 `;
 
 const CountContainer = styled.div`
