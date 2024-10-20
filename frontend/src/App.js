@@ -16,6 +16,8 @@ import QuestionScreen from "./quiz-solve/components/QuestionScreen";
 import AnswerScreen from "./quiz-solve/components/AnswerScreen";
 import CommentScreen from "./quiz-solve/components/CommentScreen";
 import ChallengeDashboardPage from "./pages/challenge-dashboard/ChallengeDashboardPage";
+import ChallengePostPage from "./pages/challenge-dashboard/ChallengePostPage";
+import ChallengeMain from "./pages/challenge-dashboard/ChallengeMain";
 
 function App() {
   const [user, setUser] = useState(() => sessionStorage.getItem("user"));
@@ -66,6 +68,7 @@ function App() {
               <Route path="/quiz-solve/6" element={<CommentScreen />} />
               <Route path="/quiz-solve/6" element={<CommentScreen />} />
 
+              <Route path="/chal" element={<ChallengeMain />} />
               {/* challenges */}
               <Route
                 path="/challenges-dashboard"
@@ -73,7 +76,7 @@ function App() {
               />
             </Routes>
 
-            {window.location.pathname.includes("dashboard") && <NavBar />}
+            {/* {window.location.pathname.includes("dashboard") && <NavBar />} */}
           </MainContainer>
         </RecoilRoot>
       </BrowserRouter>

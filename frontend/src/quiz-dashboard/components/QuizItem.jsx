@@ -2,12 +2,18 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { instance } from "../../apis/utils";
+import { useRecoilState } from "recoil";
+import { quizDataState } from "../../recoil/quiz";
 
 export default function QuizItem({ isAble, title, idx }) {
   const navigate = useNavigate();
 
+  const [quizData, setQuizData] = useRecoilState(quizDataState);
+
   const handleClick = async () => {
-    const data = await instance(`/api/quiz/data/${idx}`);
+    const data = await instance.get(`/api/quiz/data/${idx}`);
+
+    setQuizData(data);
     navigate("/quiz-solve/1", { state: { data } });
   };
   return (

@@ -7,9 +7,7 @@ export default function Header({ isMain, children }) {
 
   return (
     <Container>
-      <span style={{ color: "var(--font-01)", fontWeight: "800" }}>
-        체인저스
-      </span>
+      <LogoImage src={require("../assets/images/logo.png")} />
 
       {!isMain && (
         <ButtonsContainer>
@@ -55,4 +53,9 @@ const ButtonItem = styled.li`
 const IconImage = styled.img`
   width: 24px;
   height: 24px;
+`;
+
+const LogoImage = styled.img`
+  width: 86px;
+  background-size: cover;
 `;

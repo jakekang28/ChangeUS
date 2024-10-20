@@ -10,7 +10,7 @@ export default function QuizDashboardPage() {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await instance(`/api/quiz/data`);
+      const data = await instance.get(`/api/quiz/data`);
       setItems(data);
     };
     getData();
@@ -29,13 +29,14 @@ export default function QuizDashboardPage() {
       </DiscriptionContainer>
 
       <QuizList>
-        {items.map((item, i) => (
-          <QuizItem
-            isAble={true}
-            title={"재미있는 퀴즈를 풀어볼까요?"}
-            idx={item.idx}
-          />
-        ))}
+        {items &&
+          items.map((item, i) => (
+            <QuizItem
+              isAble={true}
+              title={"재미있는 퀴즈를 풀어볼까요?"}
+              idx={item.idx}
+            />
+          ))}
       </QuizList>
     </ScreenContainer>
   );

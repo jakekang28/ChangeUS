@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { quizDataState } from "../../recoil/quiz";
 
 export default function AnswerScreen() {
   const navigate = useNavigate();
@@ -10,7 +12,9 @@ export default function AnswerScreen() {
   const [summary, setSummary] = useState("");
   const [answer, setAnswer] = useState(); // 실제 답
   const [title, setTitle] = useState("");
+  const [isCorrect, setIsCorrect] = useState(true);
 
+  const quizData = useRecoilValue(quizDataState);
   const handleClick = () => {
     navigate(`/quiz-solve/${stepNum + 1}`, {
       state: { data: data },
@@ -18,6 +22,7 @@ export default function AnswerScreen() {
   };
 
   useEffect(() => {
+    setIsCorrect(location.state.isCorrect);
     let pathNum = Number(location.pathname[location.pathname.length - 1]);
     setStepNum(pathNum);
     console.log(pathNum);
@@ -40,12 +45,12 @@ export default function AnswerScreen() {
       <TopImage />
       <BottomContainer>
         <MessageText>
-          {data.isCorrect
+          {isCorrect
             ? "축하해, 정답이야! 보상으로 0포인트를 얻었어!"
             : "아쉽지만 틀렸어ㅠㅠ 다음 기회에 도전해보자!"}
         </MessageText>
         <NextButton onClick={handleClick}>
-          왜 {data.isCorrect ? "정답" : "오답"}인지 알아볼까?
+          왜 {isCorrect ? "정답" : "오답"}인지 알아볼까?
         </NextButton>
       </BottomContainer>
       <MiddleContainer>

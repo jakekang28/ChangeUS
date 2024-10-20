@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { quizDataState } from "../../recoil/quiz";
 
 // idx, quiz_title, quiz_summary1, answer1, comments_summary1, quiz_summary2, answer2, comments_summary2
 
@@ -13,6 +15,8 @@ export default function QuestionScreen() {
   const [answer, setAnswer] = useState(0);
   const [title, setTitle] = useState("");
 
+  const quizData = useRecoilValue(quizDataState);
+
   const handleAnswer = (ans) => {
     // 클릭한 답
     navigate(`/quiz-solve/${stepNum + 1}`, {
@@ -23,16 +27,6 @@ export default function QuestionScreen() {
   useEffect(() => {
     let pathNum = Number(location.pathname[location.pathname.length - 1]);
     setStepNum(pathNum);
-    console.log(pathNum);
-    setTitle(location.state.data.quiz_title);
-    setData(location.state.data);
-    if (pathNum === 1) {
-      setSummary(location.state.data.quiz_summary1);
-      setAnswer(location.state.data.answer1);
-    } else {
-      setSummary(location.state.data.quiz_summary2);
-      setAnswer(location.state.data.answer2);
-    }
   }, [location.pathname]);
 
   return (
@@ -43,7 +37,13 @@ export default function QuestionScreen() {
           <IconWrapper
             src={require("../../assets/images/icons/icon-question.png")}
           />
-          <ContentText>{summary}</ContentText>
+          <ContentText>
+            {/* {stepNum === 1
+              ? "페트병을 분리수거 할 때 투명한 페트병은 색이 있는 페트병과 구분해서 버려야 한다."
+              : "올바른 나무 심기로 지구를 지켜요!"} */}
+
+            {stepNum === 1 ? quizData.quiz_summary1 : quizData.quiz_summary2}
+          </ContentText>
         </CotentContainer>
         <AnswersContainer>
           <AnswerButton>
