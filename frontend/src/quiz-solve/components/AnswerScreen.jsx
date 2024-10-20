@@ -15,25 +15,22 @@ export default function AnswerScreen() {
   const [isCorrect, setIsCorrect] = useState(true);
 
   const quizData = useRecoilValue(quizDataState);
+
   const handleClick = () => {
-    navigate(`/quiz-solve/${stepNum + 1}`, {
-      state: { data: data },
-    });
+    navigate(`/quiz-solve/${stepNum + 1}`);
   };
 
   useEffect(() => {
-    setIsCorrect(location.state.isCorrect);
     let pathNum = Number(location.pathname[location.pathname.length - 1]);
     setStepNum(pathNum);
     console.log(pathNum);
-    setData(location.state.data);
+    let correctNum;
     if (pathNum === 2) {
-      setSummary(location.state.quiz_summary1);
-      setAnswer(location.state.answer1);
+      correctNum = quizData.answer1;
     } else {
-      setSummary(location.state.quiz_summary2);
-      setAnswer(location.state.answer2);
+      correctNum = quizData.answer2;
     }
+    correctNum === 1 ? setIsCorrect(true) : setIsCorrect(false);
   }, [location.pathname]);
 
   return (

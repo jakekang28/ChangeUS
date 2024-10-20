@@ -14,7 +14,7 @@ export default function QuizItem({ isAble, title, idx }) {
     const data = await instance.get(`/api/quiz/data/${idx}`);
 
     setQuizData(data);
-    navigate("/quiz-solve/1", { state: { data } });
+    navigate("/quiz-solve/1");
   };
   return (
     <Container isAble={isAble} onClick={handleClick}>

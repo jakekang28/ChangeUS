@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BackgroundContainer from "../../components/BackgroundContainer";
 import Header from "../../components/Header";
 import { instance } from "../../apis/utils";
+import ScreenContainer from "../../components/ScreenContainer";
 
 // {idx, title, summary, per_score}의 배열
 
@@ -11,7 +12,11 @@ export default function ChallengeDashboardPage() {
 
   const handleClick = () => {};
   return (
-    <BackgroundContainer>
+    <ScreenContainer
+      style={{
+        background: "linear-gradient(180deg, #8be99f 0%, #00bda7 48.4%)",
+      }}
+    >
       <Header />
       <DiscriptionContainer>
         <DiscriptionTitle>챌린지를 통해 무력감 느끼기</DiscriptionTitle>
@@ -32,7 +37,7 @@ export default function ChallengeDashboardPage() {
 
         {/*  */}
       </List>
-    </BackgroundContainer>
+    </ScreenContainer>
   );
 }
 const DiscriptionContainer = styled.div`

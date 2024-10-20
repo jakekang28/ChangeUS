@@ -11,9 +11,7 @@ export default function QuestionScreen() {
   const location = useLocation();
   const [stepNum, setStepNum] = useState(0);
   const [data, setData] = useState({});
-  const [summary, setSummary] = useState("");
   const [answer, setAnswer] = useState(0);
-  const [title, setTitle] = useState("");
 
   const quizData = useRecoilValue(quizDataState);
 
